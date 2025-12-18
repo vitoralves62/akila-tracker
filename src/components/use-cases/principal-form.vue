@@ -1,5 +1,5 @@
 <template>
-    <div class="box">
+    <div class="box principal-form">
         <div class="columns">
             <div class="column is-8" role="form" aria-label="Formulário para criação de tarefas">
                 <input 
@@ -30,6 +30,8 @@
             mainTimer
         },
 
+        emits: ['add-task'],
+
         data() {
             return{
                 taskDescription: '',
@@ -38,9 +40,19 @@
 
         methods:{
             finishTask(currentTime: number) : void{
-                console.log(currentTime)
+                this.$emit('add-task', {
+                    time: currentTime,
+                    description: this.taskDescription
+                })
                 this.taskDescription = '';
             }
         }
     })
 </script>
+
+<style>
+.principal-form{
+    color: var(--text-primary);
+    background-color: var(--bg-primary);
+}
+</style>

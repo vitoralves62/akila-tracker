@@ -13,7 +13,7 @@
             :clickAction="endCount"
             :isDisabled="!isCounting"
             :icon="'fas fa-stop'"
-            :text="'play'"
+            :text="'stop'"
         />
     </div>
 </template>
@@ -53,6 +53,7 @@
                 clearInterval(this.stopwatch);
                 this.isCounting = false;
                 this.$emit('timerIsStoped', this.currentTime);
+                this.currentTime = 0;
             },
         }
     })

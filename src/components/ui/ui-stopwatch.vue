@@ -1,6 +1,6 @@
 <template>
     <section>
-        <strong>{{ realTime }}</strong>
+        <strong class="display">{{ realTime }}</strong>
     </section>
 </template>
 
@@ -24,3 +24,9 @@
         },
     })
 </script>
+
+<style lang="css" scoped>
+    .display{
+        color: var(--text-primary);
+    }
+</style>
